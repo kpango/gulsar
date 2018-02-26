@@ -2,17 +2,20 @@ package gulsar
 
 import "encoding/base64"
 
+// ConsumeMessage is consumed message struct
 type ConsumeMessage struct {
 	MessageID   string `json:"messageId"`
 	PublishTime string `json:"publishTime,omitempty"`
 	Message
 }
 
+// ProduceMessage is produced message struct
 type ProduceMessage struct {
 	ReplicationClusters []string `json:"replicationClusters"`
 	Message
 }
 
+// Message is base message struct
 type Message struct {
 	Payload    string                 `json:"payload"`
 	Properties map[string]interface{} `json:"properties"`
@@ -20,6 +23,7 @@ type Message struct {
 	Body       []byte
 }
 
+// ACKPayload ack payload struct
 type ACKPayload struct {
 	Context   string `json:"context"`
 	MessageID string `json:"messageId,omitempty"`
